@@ -214,7 +214,13 @@ function init() {
 
 init();
 
-function onInitSuccess() {}
+function onInitSuccess() {
+	var urlParams = new URLSearchParams(location.search);
+	if (urlParams.has('url')) {
+	    input.value = urlParams.get('url');
+	    go_button.click();
+	}
+}
 function onError(message) {}
 
 function sessionListener(e) { session = e; }
@@ -267,7 +273,6 @@ function sendMessage(message) {
 
       go_button.onclick = function(e) {
         var value = input.value;
-	      console.log("value:" + value);
         if (!scheme_re.test(value)) {
           value = "https://" + value;
         }
@@ -319,14 +324,7 @@ function sendMessage(message) {
       });
       input.focus();
       updateEnabled();
-	    
-      $(document).ready(function(){
-	var urlParams = new URLSearchParams(location.search);
-	if (urlParams.has('url')) {
-	    input.value = urlParams.get('url');
-	    go_button.click();
-	}	      
-      });
+	   
     </script>
 </body>
 </html>
