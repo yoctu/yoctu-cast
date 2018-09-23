@@ -267,8 +267,9 @@ function sendMessage(message) {
 
       go_button.onclick = function(e) {
         var value = input.value;
+	      console.log("value:" + value);
         if (!scheme_re.test(value)) {
-          value = "http://" + value;
+          value = "https://" + value;
         }
         var force = force_slider.classList.contains("true");
         var reload = reload_slider.classList.contains("true");
@@ -322,7 +323,6 @@ function sendMessage(message) {
       $(document).ready(function(){
 	var urlParams = new URLSearchParams(location.search);
 	if (urlParams.has('url')) {
-		console.log(urlParams.get('url'));
 	    input.value = urlParams.get('url');
 	    go_button.click();
 	}	      
