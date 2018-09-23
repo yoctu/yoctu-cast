@@ -314,9 +314,17 @@ function sendMessage(message) {
       var sliders = document.getElementsByClassName("slider");
       [].forEach.call(sliders, function(s) {
         s.onclick = sliderClicked;
-      }); 
+      });
       input.focus();
       updateEnabled();
+	    
+      $(document).ready(function(){
+	var urlParams = new URLSearchParams(location.search);
+	if (urlParams.has('url')) {
+	    input.value = urlParams.get('url');
+	    go_button.click();
+	}	      
+      }
     </script>
 </body>
 </html>
