@@ -322,6 +322,7 @@ function sendMessage(message) {
       $(document).ready(function(){
 	var urlParams = new URLSearchParams(location.search);
 	if (urlParams.has('url')) {
+		console.log(urlParams.get('url'));
 	    input.value = urlParams.get('url');
 	    go_button.click();
 	}	      
