@@ -214,14 +214,11 @@ function init() {
 
 init();
 
-function onInitSuccess() {
-	var urlParams = new URLSearchParams(location.search);
-	if (urlParams.has('url')) {
-	    input.value = urlParams.get('url');
-	    go_button.click();
-	}
+function onInitSuccess() {}
+	
+function onError(message) {
+    console.log(message);
 }
-function onError(message) {}
 
 function sessionListener(e) { session = e; }
 function sessionUpdateListener(isAlive) {if (!isAlive) { session = null; }};
