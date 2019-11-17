@@ -97,7 +97,9 @@
 	  
         var urlParams = new URLSearchParams(location.search);
         input.value = urlParams.get('url');
-	if (urlParams.get('go') === 'now') go_button.click();
+	$(document).ready(function() {
+	  if (urlParams.get('go') === 'now') go_button.click();
+	});
     </script>
 </body>
 </html>
