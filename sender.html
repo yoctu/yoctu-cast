@@ -10,8 +10,8 @@
 <script type="text/javascript" src="/js/yoctu-cast.js"></script>
 </head>
 <body>
+	<div><img src="yoctu.svg"/></div>
   <div id="main">
-    <img src="yoctu.svg"/>
     <div class="step"><em>1</em> Enter address to show</div>
     <input id="input" class="url" value="https://www.yoctu.com" />
     <div class="step"><em>2</em> Options</div>
@@ -98,8 +98,10 @@
         var urlParams = new URLSearchParams(location.search);
         input.value = urlParams.get('url');
 	$(document).ready(function() {
-	  if (urlParams.get('go') === 'now') 
-		  setTimeout(function() { go_button.click(); } , 2000);
+	  if (urlParams.get('go') === 'now') {
+		$("#main").hide();
+		setTimeout(function() { go_button.click(); } , 2000);
+	  }
 	});
     </script>
 </body>
